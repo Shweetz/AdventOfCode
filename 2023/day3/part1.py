@@ -8,11 +8,6 @@ class Gear:
     j_e: int
 
 
-with open("input.txt", "r") as f:
-# with open("input_small.txt", "r") as f:
-    lines = f.readlines()
-    lines = lines
-
 def search_symbol(gear):
     min_i = max(gear.i - 1, 0)
     max_i = min(gear.i + 2, len(lines) - 1)
@@ -26,6 +21,10 @@ def search_symbol(gear):
                 return True
     print(str(gear))
     return False
+
+with open("input.txt", "r") as f:
+# with open("input_small.txt", "r") as f:
+    lines = f.readlines()
 
 total = 0
     

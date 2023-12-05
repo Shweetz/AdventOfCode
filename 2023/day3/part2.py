@@ -13,11 +13,6 @@ class Star:
     j: int
 
 
-with open("input.txt", "r") as f:
-# with open("input_small.txt", "r") as f:
-    lines = f.readlines()
-    lines = lines
-
 def find_adj(star):
     adj = []
     for gear in gears:
@@ -28,6 +23,10 @@ def find_adj(star):
         if min_i <= star.i < max_i and min_j <= star.j < max_j:
             adj.append(gear)
     return adj
+
+with open("input.txt", "r") as f:
+# with open("input_small.txt", "r") as f:
+    lines = f.readlines()
 
 total = 0
 gears = []
