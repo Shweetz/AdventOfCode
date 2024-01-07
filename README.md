@@ -12,3 +12,6 @@ https://github.com/ricbit/advent-of-code/blob/main/2023/adv17-r.py
 
 ### Python template to solve AoC
 https://github.com/xavdid/advent-of-code-python-template
+
+### Challenge idea
+a bunch of predetermined and ordered tetris blocks (puzzle input) will fall, you can rotate and place them however you want, what number of lines can you clear

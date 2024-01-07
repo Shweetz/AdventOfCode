@@ -1,20 +1,22 @@
+from time import time
+
+# script start
+t1 = time()
 with open("input.txt", "r") as f:
     lines = f.readlines()
 
 total = 0
 
-time = int(lines[0].split(":")[1].replace(" ", ""))
+race_time = int(lines[0].split(":")[1].replace(" ", ""))
 dist = int(lines[1].split(":")[1].replace(" ", ""))
-print(time)
+print(race_time)
 print(dist)
 
 # try all button holding from 0 to max time
-for j in range(time):
-	if j * (time - j) > dist:
+for j in range(race_time):
+	if j * (race_time - j) > dist:
 		total += 1
 
 print(total)
-
-# optimization idea:
-# dichotomy to find S = shortest held time with better distance, then total = time + 1 - (S * 2)
-# example in part 1: 7ms, S = 2ms, total = 4
+print(f"Execution time: {(time() - t1):.3f}s")
+assert total == 33875953
