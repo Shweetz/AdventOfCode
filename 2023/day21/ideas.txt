@@ -1,0 +1,40 @@
+# in input.txt, no obstacles up/down/right/left of S until the edge, so free roam (assumption)
+# S is at the center (66, 66) and size is 131x131
+# 65 moves you reach the edges up/down/right/left, 66th you reach the next map
+# 130 moves you reach the 4 corners, 131 to reach S up/down/right/left, 132 to reach maps in diagonal
+# 130 moves to reach every possible tile in a map, starting from the center, 130 from a side to the other side, 260 from corner to corner 
+# 66 moves to reach the 2nd map but you actually need 131 to reach the center of the 2nd map, so every map change breaks parity
+# meaning with an odd number of steps you can't reach corners of starting map or but you reach for 2nd and not 3rd etc
+
+# goal 26501365 steps
+# 26501365 % 131 = 65
+
+# moves   0 - 65    : center map
+# moves  66 - 129   : + 4 maps from UDRL
+# moves 1L-1 - 1L   : center map  full
+# moves 1L+1 - 1L+65: + 4 corners map from corners
+# moves 1L+66 - 2L-2: + 4 UDLR
+# moves 2L-1 - 261  : 4 maps full UDRL (+ 130 + 65)
+# moves 3L-1 -      : 4 corners maps full (+ 130 + 130)
+# moves 3L+1 -      : + 4 corners map from corners
+
+# 131 = 1L
+
+# nb maps full pair
+# nb maps full impair
+# nb ULDR (4?) graph
+# nb corner graph pair
+# nb corner graph impair
+
+# part 2 answer: 616951804315987
+
+# 64  steps = 3748
+# 66  steps = 4012 (no inf : 4008)
+# 132 steps = ? (no inf : -4)
+
+# edges
+# 0 R                                (nothing)
+# 66 outer 0 steps                   (outer)
+# 66+131 outer 0, outer -> inner     (outer + inner)
+# 66+130+65 inner -> full            (outer + full)
+# 66+131+131 outer 0, outer -> inner (outer + inner + full)
