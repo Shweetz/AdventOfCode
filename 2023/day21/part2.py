@@ -1,13 +1,7 @@
 from time import time
 
-from dataclasses import dataclass
 from queue import PriorityQueue
 import sys
-
-@dataclass(order=True)
-class Pos:
-    x: int
-    y: int
 
 def take_step(steps, map_steps, poss, x, y):
 	# print(x, y)
