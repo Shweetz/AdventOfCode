@@ -1,0 +1,19 @@
+youtube.com/watch?v=RdLo-9jh2EM : Professor Dave Explains - Solving Systems Using Cramer's Rule
+youtube.com/watch?v=Ot87qLTODdQ : Other video
+https://www.wolframalpha.com/widgets/view.jsp?id=3c66255e08ebd4ee9c211ef0852ddc28 : WolframAlpha 4x4 Determinant calculator
+
+2x2 equations, A = a1b2 - b1a2 (2 multiplications)
+3x3 equations, A = a1b2c3 - a1c2b3 
+                 - b1a2c3 + b1c2a3 
+                 + c1a2b3 - c1b2a3 (2x3 multiplications)
+4x4 equations, A = a1b2c3d4 - a1b2d3c4 - a1c2b3d4 + a1c2d3b4 + a1d2b3c4 - a1d2c3b4... (2x3x4 multiplications)
+
+The signs of operations is: every new size, invert until nb_op = old_nb_op * size
+=> 1x1 : +
+=> 2x2 : + -
+=> 3x3 : +- -+ +-
+=> 4x4 : +--++- -++--+ +--++- -++--+
+
+Unit testing my function mat_calc:
+assert mat_calc([[5]]) == 5
+assert mat_calc([[5, 2], [3, 3]]) == 9
