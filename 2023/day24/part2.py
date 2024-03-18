@@ -51,10 +51,12 @@ for line in lines:
 	num_list = re.findall(r'[-0-9]+', line)
 	# print(num_list)
 
-	x, y, z, vx, vy, vz = [int(e) for e in num_list if e]
-	# print(x, y, z, vx, vy, vz)
+	# apply int() to all elements (cool trick: use map() to apply a function to all elements of a list)
+	x, y, z, vx, vy, vz = [int(e) for e in num_list]
+	x, y, z, vx, vy, vz = map(int, num_list)
 
-	stones.append(Stone(x, y, z, vx, vy, vz))
+	# stones.append(Stone(x, y, z, vx, vy, vz))
+	stones.append(Stone(*map(int, num_list)))
 
 # the rock (r) colling with a stone (s) at t0 means:
 # pxr + t0*vxr = pxs + t0*vxs

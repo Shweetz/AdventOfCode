@@ -37,7 +37,7 @@ for line in lines:
 	num_list = re.findall(r'[-0-9]+', line)
 	# print(num_list)
 
-	x, y, z, vx, vy, vz = [int(e) for e in num_list if e]
+	x, y, z, vx, vy, vz = [int(e) for e in num_list]
 	print(x, y, z, vx, vy, vz)
 
 	stones.append(Stone(x, y, z, vx, vy, vz))
