@@ -3,9 +3,8 @@ from time import time
 # return area of shape using shoelace formula
 def shoelace(coords):
 	area = 0
-	for i in range(len(coords)):
-		if i+1 < len(coords):
-			area += coords[i][0] * coords[i+1][1] - coords[i][1] * coords[i+1][0]
+	for i in range(len(coords) - 1):
+		area += coords[i][0] * coords[i+1][1] - coords[i][1] * coords[i+1][0]
 
 	return abs(int(area/2))
 

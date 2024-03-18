@@ -73,5 +73,5 @@ for i in range(low_i, hig_i + 1):
 	print(total)
 
 print(total)
-print(shape_str)
+# print(shape_str)
 print(f"Execution time: {(time() - t1):.3f}s")
