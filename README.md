@@ -1,6 +1,10 @@
 # AdventOfCode
 https://adventofcode.com/
 
+## 2024
+
+## 2023
+
 ### Reddit (solutions in day megathreads)
 https://www.reddit.com/r/adventofcode/search/?q=2023%20solutions
 

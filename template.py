@@ -1,3 +1,4 @@
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 
 @dataclass
@@ -25,6 +26,8 @@ total = 0
 
 for i, line in enumerate(lines):
 	print(f"{line=}")
+	l = [int(s) for s in line.split()]
+
 	total += 1
 
 print(f"{total = }")
