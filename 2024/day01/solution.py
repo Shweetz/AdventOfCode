@@ -1,5 +1,5 @@
 # Solution 1
-l1, l2 = zip(*[map(int, line.split()) for line in open('2024/day1/input.txt')])
+l1, l2 = zip(*[map(int, line.split()) for line in open('2024/day01/input.txt')])
 
 # Part 1
 print(sum(abs(x - y) for x, y in zip(sorted(l1), sorted(l2))))
@@ -12,6 +12,6 @@ print()
 # Solution 2: numpy
 from numpy import loadtxt, sort, isin
 
-A, B = sort(loadtxt('2024/day1/input.txt', int).T)
+A, B = sort(loadtxt('2024/day01/input.txt', int).T)
 print(sum(abs(A - B)))
 print(sum(isin(B, A) * B))

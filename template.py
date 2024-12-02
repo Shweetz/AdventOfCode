@@ -16,8 +16,8 @@ def rem(s, seps):
 
 # input file
 
-with open("2024/day1/input_s.txt", "r") as f:
-# with open("2024/day1/input.txt", "r") as f:
+with open("2024/day01/input_s.txt", "r") as f:
+# with open("2024/day01/input.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
 
 total = 0
