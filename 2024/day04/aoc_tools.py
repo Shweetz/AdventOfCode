@@ -20,10 +20,6 @@ def intersect(*lists):
 	return list(s)
 
 # regex
-def get_digits(s):
-	"""Return the string without non-digit chars"""
-	return "".join([char for char in s if char.isdigit()])
-
 def get_ints(s):
 	"""Return the list of the ints in a string"""
 	return [int(d) for d in re.findall(r"\d+", s)]

@@ -11,8 +11,8 @@ for i, line in enumerate(lines):
 	# Pop elements 1 by 1
 	for j in range(0, len(splits1)):
 		c = False
-		splits = splits1[:]
-		splits.pop(j)
+		# pop j
+		splits = splits1[:j] + splits1[j+1:]
 		print(f"{splits=}")
 
 		# Reverse the list if is

@@ -6,7 +6,7 @@ def spl(s, seps):
 		s = s.replace(sep, seps[-1])
 	return s.split(seps[-1])
 
-with open("2024/day03/input1.txt", "r") as f:
+with open("2024/day03/input.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
 
 total = 0
@@ -15,10 +15,8 @@ doing = True
 lines = "-".join(lines)
 # print(f"{lines=}")
 
-option = 4
+option = 2
 
-ints = re.findall(r"\d+", lines)
-print(f"{ints=}")
 if option == 1:
 	# - Option 1: string split + part1 findall
 	don = lines.find("don't()")
@@ -39,10 +37,8 @@ if option == 2:
 	# - Option 2: re.sub + part1 findall
 	# remove everything from a "don't()" to the next "do()"
 	# the '?' in the regex is necessary to stop on the very next "do()"
-	lines = re.sub(r"don't\(\).*?do\(\)", "", lines)
-
-	# no "do()" found, remove everything after the "don't()"
-	lines = re.sub(r"don't\(\).*", "", lines)
+	# add "do()" at the end of the input to make sure the last "don't()" has a match
+	lines = re.sub(r"don't\(\).*?do\(\)", "", lines + "do()")
 
 	matches = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)", lines)
 	total = sum(int(a)*int(b) for a,b in matches)
@@ -57,8 +53,18 @@ if option == 3:
 		elif m == "do()":
 			doing = True
 		elif doing:
-			_, n1, n2, _ = spl(m, "(,)")
-			total += int(n1) * int(n2)
+			_, a, b, _ = spl(m, "(,)")
+			total += int(a) * int(b)
+
+if option == 4:
+	# - Option 4: findall to search all 4 with groups: mul("a", "b"), "don't()" and "do()" 
+	for a, b, dont, do in re.findall(r"mul\((\d{1,3}),(\d{1,3})\)|(don't\(\))|(do\(\))", lines):
+		if dont:
+			doing = False
+		elif do:
+			doing = True
+		else:
+			total += int(a) * int(b) * doing
 
 print(f"{total = }")
 assert total == 63013756

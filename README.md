@@ -3,6 +3,9 @@ https://adventofcode.com/
 
 ## 2024
 
+### Reddit (solutions in day megathreads)
+https://www.reddit.com/r/adventofcode/search/?q=2024%20solutions
+
 ## 2023
 
 ### Reddit (solutions in day megathreads)

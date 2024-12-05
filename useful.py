@@ -1,8 +1,6 @@
-line = "".join([char for char in line if char.isdigit()])
-
-# inversion des lignes et des colonnes
+# transpose lines and columns
 l1, l2 = zip(*[line.split() for line in lines])
 
-splits = line.split(" ")
-for i, split in enumerate(splits):
+# enumerate on line split
+for i, split in enumerate(line.split()):
 	pass
