@@ -8,9 +8,12 @@ g = Grid()
 g.read(lines)
 
 l = []
+# find all diagonal "MAS" 
 for x,y,a,b in g.find("MAS", 1):
+	# append the position of the "A"
 	l.append((x+a, y+b))
 
+# the number of X-MAS is the number of doubles of "A" positions
 option = 1
 
 if option == 1:

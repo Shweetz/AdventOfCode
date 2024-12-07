@@ -10,14 +10,19 @@ class Object: pass
 with open("2024/day05/input1.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
 
+# dir = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+# dir = [[-1, 0], [0, 1], [1, 0], [0, -1], [-1, 1], [1, 1], [1, -1], [-1, -1]]
+# di = 0
+# (a,b) = dir[di]
+
 # g = Grid()
 # g.read(lines)
+# x,y,_,_ = g.find("^")[0]
+# vis = set()
 # print(f"{g.g=}")
 # print(f"{g.g[(0,0)]=}")
 # print(f"{g.adj(0,0,0)=}")
 # print(f"{len(g.find("XMAS", 0))=}")
-# dir = [[-1, 0], [0, 1], [1, 0], [0, -1]]
-# dir = [[-1, 0], [0, 1], [1, 0], [0, -1], [-1, 1], [1, 1], [1, -1], [-1, -1]]
 
 total = 0
 best = 0

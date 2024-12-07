@@ -2,83 +2,84 @@ TODO:
 what i learned
 what help needed if any
 
-Day 1 : string search
+Day 1 : list sort, compare and count
 
-1abc2
-pqr3stu8vwx
-a1b2c3d4e5f
-treb7uchet
+3   4
+4   3
+2   5
+1   3
+3   9
+3   3
 
-Day 2 : string search
+Day 2 : list order check and manipulation
 
-Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
-Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
-Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
-Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
-Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+7 6 4 2 1
+1 2 7 8 9
+9 7 6 2 1
+1 3 2 4 5
+8 6 4 4 1
+1 3 6 7 9
 
-Day 3 : 2D string search
+Day 3 : regex search
 
-467..114..
-...*......
-..35..633.
+xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
+
+Day 4 : grid search
+
+MMMSXXMASM
+MSAMXMSMSA
+AMXSXMAAMM
+MSAMASMSMX
+XMASAMXAMM
+XXAMMXXAMA
+SMSMSASXSS
+SAXAMASAAA
+MAMMMXMMMM
+MXMXAXMASX
+
+Day 5 : Topological sorting : build a directed graph
+
+47|53
+97|13
+97|61
+97|47
+75|29
+61|13
+75|53
+29|13
+97|29
+53|29
+61|53
+97|53
+61|29
+47|13
+75|47
+97|75
+47|61
+75|61
+47|29
+75|13
+53|13
+
+75,47,61,53,29
+97,61,53,29,13
+75,29,13
+75,97,47,61,53
+61,13,29
+97,13,75,29,47
+
+Day 6 : Grid walking
+
+....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
 ......#...
-617*......
-.....+.58.
-..592.....
-......755.
-...$.*....
-.664.598..
-
-Day 4 : Lists and copies
-
-Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
-Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
-Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
-Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
-Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
-Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
-
-Day 5 : Range splitting
-
-seeds: 79 14 55 13
-
-seed-to-soil map:
-50 98 2
-52 50 48
-
-soil-to-fertilizer map:
-0 15 37
-37 52 2
-39 0 15
-
-fertilizer-to-water map:
-49 53 8
-0 11 42
-42 0 7
-57 7 4
-
-water-to-light map:
-88 18 7
-18 25 70
-
-light-to-temperature map:
-45 77 23
-81 45 19
-68 64 13
-
-temperature-to-humidity map:
-0 69 1
-1 0 69
-
-humidity-to-location map:
-60 56 37
-56 93 4
-
-Day 6 : Binary search
-
-Time:      7  15   30
-Distance:  9  40  200
 
 Day 7 : Poker hands ranking
 

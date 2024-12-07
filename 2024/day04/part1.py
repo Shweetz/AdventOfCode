@@ -6,6 +6,7 @@ with open("2024/day04/input.txt", "r") as f:
 g = Grid()
 g.read(lines)
 
+# find XMAS horizontally, vertically and diagonally
 total = len(g.find("XMAS", 2))
 
 print(f"{total=}")

@@ -47,7 +47,7 @@ class Grid:
 				self.g[(x, y)] = c
 
 	def adj(self, x, y, mode=0):
-		"""Return the list of the values in the neighbors: ["X", "M", "A", "S"]
+		"""Return the list of the ints in a string
 		mode = 0: 4 adj [L, U, R, D]
 		mode = 1: 4 corners [LU, RU, RD, LD]
 		mode = 2: 8 adj [L, LU, U, RU, R, RD, D, LD]"""
@@ -63,12 +63,8 @@ class Grid:
 				adjs.append(self.g[adj])
 		return adjs
 
-	# optimisation: for R, read s in line, for L in reversed line
-	# for U/D, in the transposed line
-	# for diagonals, just splice the lines properly to create a new line to read in
-	# splice all with zip?
 	def find(self, s, mode=0):
-		"""Return the list of tuples of all occurences of a word: [(x, y, dir(x), dir(y)), ...]"""
+		"""Return the list of all occurences of a word, formatted as tuples (x, y, a, b)"""
 		L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
 		dir = [L, U, R, D]
 		if mode == 1: dir = [LU, RU, RD, LD]
