@@ -42,4 +42,5 @@ for i, line in enumerate(lines):
 
 	total += 1
 
+total = total
 print(f"{total = }")
