@@ -81,13 +81,17 @@ Day 6 : Grid walking
 #.........
 ......#...
 
-Day 7 : Poker hands ranking
+Day 7 : int calculations with different operators
 
-32T3K 765
-T55J5 684
-KK677 28
-KTJJT 220
-QQQJA 483
+190: 10 19
+3267: 81 40 27
+83: 17 5
+156: 15 6
+7290: 6 8 6 15
+161011: 16 10 13
+192: 17 8 14
+21037: 9 7 18 13
+292: 11 6 16 20
 
 Day 8 : Path following
 

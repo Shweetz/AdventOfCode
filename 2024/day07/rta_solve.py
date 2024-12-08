@@ -7,7 +7,7 @@ from aoc_tools import *
 @dataclass
 class Object: pass
 
-with open("2024/day08/input1.txt", "r") as f:
+with open("2024/day07/input.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
 
 # dir = [[-1, 0], [0, 1], [1, 0], [0, -1]]
@@ -22,12 +22,13 @@ with open("2024/day08/input1.txt", "r") as f:
 # print(f"{g.g=}")
 # print(f"{g.g[(0,0)]=}")
 # print(f"{g.adj(0,0,0)=}")
-# print(f"{len(g.find("^", 0))=}")
+# print(f"{len(g.find("XMAS", 0))=}")
 
 total = 0
 best = 0
 cur = 0
 
+ll = []
 # l1, l2 = zip(*[line.split() for line in lines])
 
 # for l1, l2, l3 in zip(lines[::3], lines[1::3], lines[2::3]):
@@ -35,11 +36,27 @@ for i, line in enumerate(lines):
 	# print(f"{line=}")
 	# for j, c in enumerate(line):
 		
-	# l = get_ints(line)
+	# l = [int(s) for s in line.split()]
+	l = get_ints(line)
+
+	poss = [l[1]]
+
+	for i in range(2, len(l)):
+		nposs = []
+		for p in poss:
+			nposs.append(p + l[i])
+			nposs.append(p * l[i])
+			nposs.append(p * pow(10, len(str(l[i]))) + l[i])
+		poss = nposs.copy()
+
 	# print(f"{l=}")
 
-	pass
+	# ll.append(l)
 
-	total += 1
+	if l[0] in poss:
+		total += l[0]
+
+# ll2 = zip(*ll)
+# print(f"{list(ll2) = }")
 
 print(f"{total = }")
