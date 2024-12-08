@@ -30,6 +30,10 @@ cur = 0
 
 # l1, l2 = zip(*[line.split() for line in lines])
 
+# for i in range(0, len(lines), 1):
+# 	for j in range(0, len(lines[i]), 1):
+# 		c = g.g[(i,j)]
+
 # for l1, l2, l3 in zip(lines[::3], lines[1::3], lines[2::3]):
 for i, line in enumerate(lines):
 	# print(f"{line=}")
@@ -42,4 +46,5 @@ for i, line in enumerate(lines):
 
 	total += 1
 
+total = total
 print(f"{total = }")
