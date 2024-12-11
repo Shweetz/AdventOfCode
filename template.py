@@ -1,15 +1,17 @@
 from collections import Counter, defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+import functools
 import re
-import time
+from time import sleep, time
 
 from aoc_tools import *
 
-@dataclass
-class O:
-	p: int # position
-	v: int # value
-	l: int # length
+# @dataclass
+# class O:
+# 	p: int # position
+# 	v: int # value
+# 	l: int # length
+# 	c: list = field(default_factory=list) # path
 
 with open("2024/day10/input1.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]

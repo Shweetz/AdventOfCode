@@ -108,32 +108,24 @@ Day 8 : Grid manipulation
 ............
 ............
 
-Day 9 : List manipulation
+Day 9 : List manipulation/data structure thinking
 
-0 3 6 9 12 15
-1 3 6 10 15 21
-10 13 16 21 30 45
+2333133121414131402
 
-Day 10 : 2D Path following & area calculating
+Day 10 : Grid walking
 
-7-F7-
-.FJ|7
-SJLL7
-|F--J
-LJ.LJ
+89010123
+78121874
+87430965
+96549874
+45678903
+32019012
+01329801
+10456732
 
-Day 11 : 2D list manipulation
+Day 11 : int/list/dict manipulation/data structure thinking
 
-...#......
-.......#..
-#.........
-..........
-......#...
-.#........
-.........#
-..........
-.......#..
-#...#.....
+0 1 10 99 999
 
 Day 12 : Recursive line nonogram
 
