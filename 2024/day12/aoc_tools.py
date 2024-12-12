@@ -77,12 +77,12 @@ class Grid:
 		mode = 1: 4 corners [LU, RU, RD, LD]
 		mode = 2: 8 adj [L, LU, U, RU, R, RD, D, LD]"""
 		L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
-		dirs = [L, U, R, D]
-		if mode == 1: dirs = [LU, RU, RD, LD]
-		if mode == 2: dirs = [L, LU, U, RU, R, RD, D, LD]
+		dir = [L, U, R, D]
+		if mode == 1: dir = [LU, RU, RD, LD]
+		if mode == 2: dir = [L, LU, U, RU, R, RD, D, LD]
 		
 		adjs = []
-		for a, b in dirs:
+		for a, b in dir:
 			adj = (x+a, y+b)
 			if adj in self.g:
 				adjs.append((x+a, y+b, self.g[adj]))
@@ -91,14 +91,14 @@ class Grid:
 	def find(self, s, mode=0):
 		"""Return the list of tuples of all occurences of a word: [(x, y, dir(x), dir(y)), ...]"""
 		L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
-		dirs = [L, U, R, D]
-		if mode == 1: dirs = [LU, RU, RD, LD]
-		if mode == 2: dirs = [L, LU, U, RU, R, RD, D, LD]
+		dir = [L, U, R, D]
+		if mode == 1: dir = [LU, RU, RD, LD]
+		if mode == 2: dir = [L, LU, U, RU, R, RD, D, LD]
 		
 		found = []
 		l = len(s) - 1
 		for x, y in self.g: # x,y = position of 1st char in grid
-			for a, b in dirs: # a,b = search direction
+			for a, b in dir: # a,b = search direction
 				if (x+a*l, y+b*l) in self.g: # if last char in grid
 					dir_poss = True
 					for i in range(l+1): # check each char
