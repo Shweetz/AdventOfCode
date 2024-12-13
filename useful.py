@@ -1,3 +1,5 @@
+from sympy import symbols, Eq, solve
+
 class Grid: pass
 lines = []
 
@@ -30,3 +32,10 @@ while q:
 				total += 1
 			else:
 				q.append((x,y,int(v2)))
+
+# linear equations with sympy
+ax,bx,px,ay,by,py = 0
+a, b = symbols('a b', integer=True) # only int solutions
+eq1 = Eq(ax * a + bx * b, px)
+eq2 = Eq(ay * a + by * b, py)
+sol = solve((eq1, eq2),(a, b))
