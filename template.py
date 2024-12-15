@@ -24,15 +24,18 @@ with open("2024/day15/input1.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
 
 L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
+dirs = {"<":L, "^":U, ">":R, "v":D}
 dirs = [L, U, R, D]
 di = 0
 
 # g = Grid()
 # g.read(lines)
-# x,y,_,_ = g.find("^")[0]
+# g.print()
+# x,y = g.find("^")[0]
+# pprint(f"{x,y=}")
 # vis = set()
 
-total, best, cur = 0
+total, best, cur = 0, 0, 0
 
 lo = [] # list of objects O
 
