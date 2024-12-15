@@ -10,7 +10,7 @@ from time import sleep, time
 from aoc_tools import *
 
 def pprint(s):
-	# print(s)
+	print(s)
 	pass
 
 # @dataclass
@@ -20,24 +20,19 @@ def pprint(s):
 # 	l: int # length
 # 	c: list = field(default_factory=list) # path
 
-with open("2024/day13/input.txt", "r") as f:
+with open("2024/day15/input1.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
 
-dirs = [[-1, 0], [0, 1], [1, 0], [0, -1], [-1, 1], [1, 1], [1, -1], [-1, -1]]
-dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
+dirs = [L, U, R, D]
 di = 0
 
 # g = Grid()
 # g.read(lines)
 # x,y,_,_ = g.find("^")[0]
 # vis = set()
-# pprint(f"{g.g=}")
-# pprint(f"{g.adj(0,0,0)=}")
-# pprint(f"{len(g.find("^", 0))=}")
 
-total = 0
-best = 0
-cur = 0
+total, best, cur = 0
 
 lo = [] # list of objects O
 

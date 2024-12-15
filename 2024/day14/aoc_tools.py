@@ -25,13 +25,8 @@ def get_digits(s):
 	return "".join([char for char in s if char.isdigit()])
 
 def get_ints(s):
-	"""Return the list of the ints (including negative) in a string"""
-	return [int(d) for d in re.findall(r"-?\d+", s)]
-	# return [int(d) for d in re.findall(r"\d+", s)]
-
-def get_nums(s):
-	"""Return the list of the numbers (including negative and decimal) in a string"""
-	return [float(d) for d in re.findall(r"-?\d*\.?\d+", s)]
+	"""Return the list of the ints in a string"""
+	return [int(d) for d in re.findall(r"\d+", s)]
 
 def get_words(s):
 	"""Return the list of the words in a string"""
