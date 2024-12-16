@@ -4,10 +4,24 @@ from dataclasses import dataclass, field
 import functools
 import math
 import re
+from queue import PriorityQueue
 import sympy
+import sys
 from time import sleep, time
 
 from aoc_tools import *
+
+sys.setrecursionlimit(1000000)
+
+L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
+dirs = {"<":L, "^":U, ">":R, "v":D}
+dirs = [L, U, R, D] # directions
+di = 0 # direction index
+
+def move(pos, di):
+	"""Move from a position to a direction, "di" is the index in the "dirs" list"""
+	d = dirs[di]
+	return (pos[0] + d[0], pos[1] + d[1])
 
 def pprint(s):
 	print(s)
@@ -20,22 +34,17 @@ def pprint(s):
 # 	l: int # length
 # 	c: list = field(default_factory=list) # path
 
-with open("2024/day15/input1.txt", "r") as f:
+with open("2024/day17/input1.txt", "r") as f:
 	lines = [l.strip() for l in f.readlines()]
-
-L, LU, U, RU, R, RD, D, LD = [[0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1]]
-dirs = {"<":L, "^":U, ">":R, "v":D}
-dirs = [L, U, R, D]
-di = 0
 
 # g = Grid()
 # g.read(lines)
 # g.print()
 # x,y = g.find("^")[0]
 # pprint(f"{x,y=}")
-# vis = set()
+# visited = set()
 
-total, best, cur = 0, 0, 0
+total, best, cur = 0, sys.maxsize, 0
 
 lo = [] # list of objects O
 
