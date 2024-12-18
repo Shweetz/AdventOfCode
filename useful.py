@@ -1,6 +1,4 @@
-from queue import PriorityQueue
 from sympy import symbols, Eq, solve
-
 class Grid: pass
 lines = []
 
@@ -35,49 +33,6 @@ while q:
 				total += 1
 			else:
 				q.append((x,y,int(v2)))
-
-# priority queue
-def move(): pass
-di = 0
-visited = set()
-
-q = PriorityQueue()
-q.put((0, (x,y), di))
-
-while not q.empty():
-	score, pos, di = q.get()
-
-	if g.g[pos] == "#":
-		continue
-
-	if score >= best:
-		# worse than a path to the end
-		continue
-	
-	if score >= visited[(pos, di)]:
-		# worse than another path to this tile/direction
-		continue
-	else:
-		# new best score from start to here
-		visited[(pos, di)] = score
-
-	if g.g[pos] == "E":
-		# reached finish
-		if score < best:
-			best = score
-
-	else:
-		# take a new step to neighbors: same direction, right, left
-		for new_di in [di, di+1, di-1]:
-			new_di = new_di % 4
-			
-			new_score = score + 1
-			if new_di != di:
-				# change direction = 1000 pts
-				new_score += 1000
-
-			new_pos = move(pos, new_di)
-			q.put((new_score, new_pos, new_di))
 			
 # linear equations with sympy
 ax,bx,px,ay,by,py = 0
