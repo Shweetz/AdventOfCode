@@ -224,15 +224,14 @@ class Grid:
 				if score < best:
 					# new best found, clear the old tiles
 					best = score
-					# best_tiles.clear()
+					best_tiles.clear()
 
 				if score == best:
 					best = score
-					# for p in path:
-					# 	best_tiles.add(p)
+					for p in path:
+						best_tiles.add(p)
 
-					# best_tiles.add(pos) # add finish
-					best_tiles = path + [end]
+					best_tiles.add(pos) # add finish
 
 			else:
 				# take a new step to neighbors: same direction, right, left
@@ -249,51 +248,3 @@ class Grid:
 					# q.put((new_score, new_pos, 0, path + [pos])) # if direction doesn't matter
 		
 		return best, best_tiles
-
-	def bfs2(self, start, dist):
-		# priority queue
-		best = sys.maxsize
-		cheats = defaultdict(int)
-		visited = defaultdict(lambda:best)
-		q = PriorityQueue()
-		q.put((0, start, 0, []))
-		q.put((0, start, 1, []))
-		q.put((0, start, 2, []))
-		q.put((0, start, 3, []))
-		# q.put((0, start, 2, []))
-
-		while not q.empty():
-			score, pos, di, path = q.get()
-
-			if pos not in self.g or self.g[pos] == "#":
-				continue
-			
-			if score >= visited[(pos, 0)]:
-				# worse than another path to this tile/direction
-				continue
-			else:
-				# new best score from start to here
-				visited[(pos, 0)] = score
-
-			# print(f"{path=}")
-			if self.g[pos] != "." and int(self.g[pos]) < int(self.g[start]):
-				diff = int(self.g[start]) - int(self.g[pos]) - score
-				# print(f"{diff=}")
-				if diff > cheats[(start,pos)]:
-					cheats[(start,pos)] = diff
-
-			if score < dist:
-				# take a new step to neighbors: same direction, right, left
-				for new_di in [di, di+1, di-1, di+2]:
-					new_di = new_di % 4
-					
-					new_score = score + 1
-					# if new_di != di:
-					# 	# change direction = 1000 pts
-					# 	new_score += 1000
-
-					new_pos = self.move(pos, new_di)
-					q.put((new_score, new_pos, new_di, path + [pos]))
-					# q.put((new_score, new_pos, 0, path + [pos])) # if direction doesn't matter
-		
-		return cheats
