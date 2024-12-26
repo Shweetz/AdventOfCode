@@ -26,33 +26,24 @@ def pprint(s):
 	pass
 
 
-def dfs(c, visited=set()):
-	# print(f"{c,visited=}")
+def dfs(pos, steps=0):
 	global best
+	# print(x, y, steps)
 
-	# cur.add(c)
-	visited.add(c)
-	
-	if len(visited) > len(best):
-		best = visited.copy()
-		print(",".join(sorted(best)))
+	if pos == end_pos:
+		# reached finish
+		if (steps > best):
+			print(steps)
+			best = steps
 
-		for c2 in graph:
-			if len(graph[c2]) == len(best) - 1:
-				bad.add(c2)
-	
-	inter = graph[c]
-	for cx in visited:
-		inter = inter.intersection(graph[cx])
-		inter = set(c2 for c2 in inter if c2 not in bad)
+	else:
+		visited.add(pos)
+		
+		for c2 in graph[pos]:
+			if c2 not in visited:
+				dfs(c2, steps+1)
 
-	if len(visited) + len(inter) > len(best):
-		for c2 in inter:
-			# if c2 not in visited:
-				# if visited.issubset(graph[c2]):
-			dfs(c2, visited)
-
-	visited.remove(c)
+		visited.remove(pos)
 
 t1 = time()
 with open("2024/day23/input.txt", "r") as f:
@@ -88,20 +79,12 @@ for i, line in enumerate(lines):
 	graph[c2].add(c1)
 	# pprint(f"{l=}")
 
-best = set()
-visited = set()
-bad = set()
-seen_cr = False
+best = 0
 for c1 in graph:
-	print(f"dfs on {c1=}")
-	if c1 == "fs":
-		seen_cr = True
-	if seen_cr:
-		dfs(c1)
-	bad.add(c1)
-	# end_pos = c1
-	# for c2 in graph[c1]:
-	# 	dfs(c2)
+	visited = set()
+	end_pos = c1
+	for c2 in graph[c1]:
+		dfs(c2)
 # 	for c2 in graph:
 # 		if c2 in graph[c1]:
 # 			inter = graph[c1].intersection(graph[c2])
@@ -109,12 +92,6 @@ for c1 in graph:
 # 				sets.add(tuple(sorted([c1,c2,c3])))
 # for s in sets:
 # 	print(s)
-total = ",".join(sorted(best))
+total = best
 print(f"{total = }")
 print(f"Execution time: {(time() - t1):.3f}s")
-
-# ey,ft,fv,pr,qp,rk,sb,ve,vn,wq,xb,ya
-# cy,ey,ft,fv,pr,qp,rk,ve,vn,wq,xb,ya
-# ca,gf,hf,hh,ih,nb,ne,qr,sd,wu,xh,yl
-# ai,bu,cn,ex,fs,lq,nr,qy,rf,rq,xq,yz
-# cw,dy,ef,iw,ji,jv,ka,ob,qv,ry,ua,wt,xz
